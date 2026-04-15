@@ -1791,18 +1791,11 @@ export const getMockData = (): SheetData => {
   };
 };
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbydjBAQ5A5-edLdq7QIm1R2rybNDOVkMh7VyucjMVkzd9azxP78GfPfwcTR7GSawFdwPg/exec';
+// This will use the Netlify variable in production 
+// and can use a fallback for local development
+const GOOGLE_SHEET_URL = import.meta.env.VITE_SHEETS_API_URL;
 
-export const getSheetData = async (): Promise<SheetData> => {
-  try {
-    const response = await fetch(GOOGLE_SHEET_URL);
-    if (!response.ok) throw new Error('Network response was not ok');
-    
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Failed to fetch live data, falling back to mock data:", error);
-    // Return the mock data function you provided
-    return getMockData();
-  }
+export const fetchSheetData = async () => {
+  const response = await fetch(GOOGLE_SHEET_URL);
+  return response.json();
 };
