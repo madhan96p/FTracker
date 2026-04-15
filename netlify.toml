@@ -1,22 +1,8 @@
 [build]
-  command = "npm run build"
+  command = "npm install --no-optional && npm run build"
   publish = "dist"
-
-[build.environment]
-  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[context.production.environment]
-  VITE_APP_ENV = "production"
-
-[context.deploy-preview.environment]
-  VITE_APP_ENV = "preview"
-
-[build]
-  base = "FTracker"   # Change this to match your folder name exactly
-  command = "npm install --no-optional && npm run build"
-  publish = "dist"
