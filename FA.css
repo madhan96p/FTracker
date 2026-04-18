@@ -1,0 +1,10 @@
+/* fa/FA.css */
+.health-bar { display:inline-flex; gap:2px; vertical-align:middle; }
+.health-pip { width:8px; height:8px; border-radius:2px; background:var(--border); }
+.health-pip.filled-profit { background:var(--profit); }
+.health-pip.filled-gold   { background:var(--gold); }
+.health-pip.filled-loss   { background:var(--loss); }
+.data-table td:first-child, .data-table th:first-child {
+  position:sticky; left:0; background:var(--bg-card); z-index:1;
+}
+.data-table th:first-child { background:var(--bg-surface); }

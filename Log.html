@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Trade Log — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/common.css"/>
+  <link rel="stylesheet" href="Log.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <div id="sidebar-placeholder"></div>
+  <div class="content-col">
+    <div id="header-placeholder"></div>
+    <main class="page-main">
+
+      <div class="panel-hdr">
+        <div class="panel-title">Trade Transaction Log</div>
+        <div class="panel-subtitle muted" style="font-size:12px">
+          Daily aggregation of F&O trades · Running demat balance from ₹25,000
+        </div>
+      </div>
+
+      <!-- Summary stats -->
+      <div class="log-summary" id="logSummary"></div>
+
+      <!-- Running balance chart -->
+      <div class="card" style="margin-top:1rem">
+        <div class="card-label">Running Demat Balance</div>
+        <canvas id="balanceChart" height="140"></canvas>
+      </div>
+
+      <!-- Table -->
+      <div class="card" style="margin-top:1rem">
+        <div class="table-wrap">
+          <table class="data-table" id="logTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th class="sortable" data-col="date">Date</th>
+                <th>Avg Entry ₹</th>
+                <th>Avg Exit ₹</th>
+                <th class="sortable" data-col="qty">Total Qty</th>
+                <th>Capital In ₹</th>
+                <th>Capital Out ₹</th>
+                <th class="sortable" data-col="grossPnl">Gross P&amp;L</th>
+                <th class="sortable" data-col="netPnl">Net P&amp;L</th>
+                <th class="sortable" data-col="total">Balance ₹</th>
+              </tr>
+            </thead>
+            <tbody id="logTbody">
+              <tr class="empty-row"><td colspan="10">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="logFooter"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<div id="modal-placeholder"></div>
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="Log.js"></script>
+</body>
+</html>

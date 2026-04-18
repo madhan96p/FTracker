@@ -1,8 +1,70 @@
 [build]
-  command = "npm install --omit=optional=false && npm run build"
-  publish = "dist"
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/shared/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from   = "/"
+  to     = "/dashboard/Dashboard.html"
+  status = 301
+
+[[redirects]]
+  from   = "/dashboard"
+  to     = "/dashboard/Dashboard.html"
+  status = 301
+
+[[redirects]]
+  from   = "/fo"
+  to     = "/fo/FO.html"
+  status = 301
+
+[[redirects]]
+  from   = "/holdings"
+  to     = "/holdings/Holdings.html"
+  status = 301
+
+[[redirects]]
+  from   = "/investments"
+  to     = "/investments/Investments.html"
+  status = 301
+
+[[redirects]]
+  from   = "/ipo"
+  to     = "/ipo/IPO.html"
+  status = 301
+
+[[redirects]]
+  from   = "/log"
+  to     = "/log/Log.html"
+  status = 301
+
+[[redirects]]
+  from   = "/analytics"
+  to     = "/analytics/Analytics.html"
+  status = 301
+
+[[redirects]]
+  from   = "/fa"
+  to     = "/fa/FA.html"
+  status = 301
+
+[[redirects]]
+  from   = "/demat2"
+  to     = "/demat2/Demat2.html"
+  status = 301

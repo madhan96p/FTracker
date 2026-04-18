@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Holdings — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/common.css"/>
+  <link rel="stylesheet" href="Holdings.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <div id="sidebar-placeholder"></div>
+  <div class="content-col">
+    <div id="header-placeholder"></div>
+    <main class="page-main">
+
+      <div class="panel-hdr">
+        <div class="panel-title">Holdings (Aggregated)</div>
+        <div class="controls-row">
+          <input type="text" class="input-text" id="hSearch" placeholder="Search company / symbol…" style="width:220px"/>
+          <select class="input-select" id="hFilter">
+            <option value="all">All</option>
+            <option value="profit">In Profit</option>
+            <option value="loss">In Loss</option>
+            <option value="buy-dip">🚀 Buy Dip</option>
+            <option value="take-profit">💰 Take Profit</option>
+            <option value="hold">💎 Hold</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Note about the P&L fix -->
+      <div class="fix-note">
+        ✅ P&L = Current Value − Total Invested (both SUMIF-aggregated from sheet).
+        "Current Value" col 7 = total portfolio value, NOT per-share price.
+      </div>
+
+      <div class="card" style="margin-top:.75rem">
+        <div class="table-wrap">
+          <table class="data-table" id="hTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-col="companyName">Company</th>
+                <th>Symbol</th>
+                <th>Sector</th>
+                <th class="sortable" data-col="avgBuyPrice">Avg Buy ₹</th>
+                <th class="sortable" data-col="totalQty">Qty</th>
+                <th class="sortable" data-col="totalInvested">Invested ₹</th>
+                <th>Brokerage ₹</th>
+                <th class="sortable" data-col="currentValue">Current ₹</th>
+                <th class="sortable" data-col="pnl">P&amp;L ₹</th>
+                <th class="sortable" data-col="pnlPct">P&amp;L %</th>
+                <th>Sentinel</th>
+                <th>FA Action</th>
+                <th>Master Signal</th>
+              </tr>
+            </thead>
+            <tbody id="hTbody">
+              <tr class="empty-row"><td colspan="13">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="hFooter"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<div id="modal-placeholder"></div>
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="Holdings.js"></script>
+</body>
+</html>

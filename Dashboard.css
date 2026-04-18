@@ -1,0 +1,77 @@
+/* dashboard/Dashboard.css
+   ════════════════════════════════════════════════════════
+   Page-specific styles for Dashboard.html.
+   common.css handles all shared styles — DO NOT repeat them here.
+   ════════════════════════════════════════════════════════ */
+
+/* ── Two-column row for side-by-side cards ─────────────── */
+.section-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ── Card header with label + link ─────────────────────── */
+.card-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* ── F&O Breakdown grid (inside the breakdown card) ─────── */
+.fo-breakdown {
+  grid-column: 1;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .85rem;
+  margin-top: .5rem;
+}
+
+.breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.breakdown-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.breakdown-value {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.breakdown-value.profit { color: var(--profit); }
+.breakdown-value.loss   { color: var(--loss); }
+.breakdown-value.gold   { color: var(--gold); }
+
+.breakdown-hint {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* ── KPI accent overrides for specific cards ────────────── */
+.kpi-fo-pnl::before    { background: var(--profit); }
+.kpi-holdings::before  { background: var(--neutral); }
+.kpi-invested::before  { background: var(--gold); }
+.kpi-winrate::before   { background: var(--purple); }
+
+/* ── Recent F&O table — transfer row dim ───────────────── */
+.row-transfer { opacity: .55; }
+
+/* ── Responsive: stack columns on small screens ─────────── */
+@media (max-width: 900px) {
+  .section-row { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Demat 2 — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/common.css"/>
+  <link rel="stylesheet" href="Demat2.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <div id="sidebar-placeholder"></div>
+  <div class="content-col">
+    <div id="header-placeholder"></div>
+    <main class="page-main">
+
+      <div class="panel-hdr">
+        <div class="panel-title">Demat Account 2</div>
+        <input type="text" class="input-text" id="d2Search" placeholder="Search company / ticker…" style="width:220px"/>
+      </div>
+
+      <div class="account-badge">🗂 Demat 2 — "76k" Account</div>
+
+      <!-- Summary -->
+      <div class="stats-grid" id="d2Stats"></div>
+
+      <div class="card" style="margin-top:.5rem">
+        <div class="table-wrap">
+          <table class="data-table" id="d2Table">
+            <thead>
+              <tr>
+                <th class="sortable" data-col="companyName">Company</th>
+                <th>Ticker</th>
+                <th class="sortable" data-col="date">Date</th>
+                <th class="sortable" data-col="orderPrice">Order ₹</th>
+                <th class="sortable" data-col="filledQty">Qty</th>
+                <th class="sortable" data-col="currentPrice">Curr ₹</th>
+                <th>Brokerage ₹</th>
+                <th class="sortable" data-col="invested">Invested ₹</th>
+                <th class="sortable" data-col="current">Current ₹</th>
+                <th class="sortable" data-col="netPnl">Net P&amp;L</th>
+                <th class="sortable" data-col="grossPnl">Gross P&amp;L</th>
+                <th class="sortable" data-col="pnlPct">P&amp;L %</th>
+              </tr>
+            </thead>
+            <tbody id="d2Tbody">
+              <tr class="empty-row"><td colspan="12">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="d2Footer"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<div id="modal-placeholder"></div>
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="Demat2.js"></script>
+</body>
+</html>

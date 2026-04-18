@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles (must be first) -->
+  <link rel="stylesheet" href="../shared/common.css" />
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="Dashboard.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Sidebar injected here by components.js -->
+  <div id="sidebar-placeholder"></div>
+
+  <div class="content-col">
+
+    <!-- Header injected here -->
+    <div id="header-placeholder"></div>
+
+    <!-- ═════════════════════════════════════
+         MAIN CONTENT
+         ═════════════════════════════════════ -->
+    <main class="page-main">
+
+      <!-- ── KPI Cards ─────────────────────── -->
+      <div class="stats-grid" id="kpiGrid">
+        <!-- Populated by Dashboard.js -->
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+        <div class="stat-card skeleton-card"><div class="skeleton" style="width:60%;margin-bottom:.5rem"></div><div class="skeleton" style="width:80%;height:24px"></div></div>
+      </div>
+
+      <!-- ── F&O Breakdown ─────────────────── -->
+      <div class="section-row">
+        <div class="card fo-breakdown">
+          <div class="card-label">F&O Account Breakdown</div>
+          <div class="breakdown-grid" id="foBreakdown">
+            <!-- Populated by Dashboard.js -->
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Win / Loss Split</div>
+          <canvas id="winLossChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <!-- ── Cumulative P&L Chart ──────────── -->
+      <div class="card" style="margin-top:1rem">
+        <div class="card-label">Cumulative F&O P&L (Daily)</div>
+        <canvas id="cumulativePnlChart" height="160"></canvas>
+      </div>
+
+      <!-- ── Portfolio Split ───────────────── -->
+      <div class="section-row" style="margin-top:1rem">
+        <div class="card">
+          <div class="card-label">Portfolio Allocation</div>
+          <canvas id="allocationChart" height="180"></canvas>
+        </div>
+        <div class="card">
+          <div class="card-label">Holdings Sector Distribution</div>
+          <canvas id="sectorChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <!-- ── Recent F&O Trades ─────────────── -->
+      <div class="card" style="margin-top:1rem">
+        <div class="card-hdr">
+          <span class="card-label">Recent F&O Trades</span>
+          <a class="btn-link" href="../fo/FO.html">View all →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Instrument</th>
+                <th>Qty</th>
+                <th>Entry</th>
+                <th>Exit</th>
+                <th>Net P&L</th>
+                <th>Mail P&L</th>
+                <th>Slippage</th>
+              </tr>
+            </thead>
+            <tbody id="recentFoTbody">
+              <tr class="empty-row"><td colspan="8">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Top Holdings ──────────────────── -->
+      <div class="card" style="margin-top:1rem">
+        <div class="card-hdr">
+          <span class="card-label">Top Holdings (by P&L)</span>
+          <a class="btn-link" href="../holdings/Holdings.html">View all →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Sector</th>
+                <th>Invested</th>
+                <th>Current</th>
+                <th>P&L</th>
+                <th>P&L %</th>
+                <th>Signal</th>
+              </tr>
+            </thead>
+            <tbody id="topHoldingsTbody">
+              <tr class="empty-row"><td colspan="7">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Settings modal injected here -->
+<div id="modal-placeholder"></div>
+
+<!-- ═══════════════ SCRIPTS ═══════════════
+     Load order matters:
+     1. config.js   → constants
+     2. utils.js    → formatters
+     3. sheets.js   → data fetch + parse
+     4. components.js → nav/header injection
+     5. Chart.js    → chart library
+     6. Dashboard.js → page logic
+══════════════════════════════════════════ -->
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="Dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>F&amp;O Trades — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/common.css"/>
+  <link rel="stylesheet" href="FO.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <div id="sidebar-placeholder"></div>
+  <div class="content-col">
+    <div id="header-placeholder"></div>
+    <main class="page-main">
+
+      <div class="panel-hdr">
+        <div class="panel-title">F&amp;O Trades</div>
+        <div class="controls-row">
+          <input type="text" class="input-text" id="foSearch" placeholder="Search instrument…" style="width:200px"/>
+          <select class="input-select" id="foFilter">
+            <option value="all">All Rows</option>
+            <option value="trades">Trades Only</option>
+            <option value="win">Wins</option>
+            <option value="loss">Losses</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Summary strip (totals above table) -->
+      <div class="fo-summary" id="foSummary"></div>
+
+      <div class="card" style="margin-top:1rem">
+        <div class="table-wrap">
+          <table class="data-table" id="foTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-col="date">Date</th>
+                <th>Instrument</th>
+                <th class="sortable" data-col="qty">Qty</th>
+                <th class="sortable" data-col="entryPrice">Entry ₹</th>
+                <th class="sortable" data-col="exitPrice">Exit ₹</th>
+                <th class="sortable" data-col="grossPnl">Gross P&amp;L</th>
+                <th>Charges</th>
+                <th class="sortable" data-col="netPnl">Net P&amp;L</th>
+                <th class="sortable" data-col="mailData">Mail P&amp;L</th>
+                <th>Slippage</th>
+                <th>Time In</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="foTbody">
+              <tr class="empty-row"><td colspan="12">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="foFooter"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<div id="modal-placeholder"></div>
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="FO.js"></script>
+</body>
+</html>

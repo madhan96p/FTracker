@@ -1,0 +1,29 @@
+/* ipo/IPO.css */
+.ipo-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: .75rem;
+}
+.ipo-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .65rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  min-width: 140px;
+}
+.ipo-stat .lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ipo-stat .val {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+}

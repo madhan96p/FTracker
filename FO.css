@@ -1,0 +1,31 @@
+/* fo/FO.css — F&O Trades page specific styles */
+
+/* Summary strip above the table */
+.fo-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: .75rem;
+  margin-bottom: .25rem;
+}
+
+.fo-summary-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  min-width: 130px;
+}
+
+.fo-summary-item .lbl { font-size:10px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--text-muted); }
+.fo-summary-item .val { font-family:var(--font-mono); font-size:14px; font-weight:700; }
+
+/* Transfer row styling */
+.data-table tbody tr.row-transfer td { color: var(--text-muted); font-style: italic; }
+.data-table tbody tr.row-transfer { border-left: 3px solid var(--border); }
+
+/* Slippage column — allow wrapping since it has emojis + text */
+.data-table td:nth-child(10) { white-space: normal; min-width: 140px; font-size: 11px; }

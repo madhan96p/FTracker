@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Analytics — FTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/common.css"/>
+  <link rel="stylesheet" href="Analytics.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <div id="sidebar-placeholder"></div>
+  <div class="content-col">
+    <div id="header-placeholder"></div>
+    <main class="page-main">
+
+      <div class="panel-hdr">
+        <div class="panel-title">Analytics</div>
+      </div>
+
+      <div class="analytics-grid">
+
+        <!-- Row 1: Cumulative P&L (wide) + Win/Loss Donut -->
+        <div class="card chart-card span-8">
+          <div class="chart-title">Cumulative F&O P&L Over Time</div>
+          <canvas id="cumulativePnlChart" height="200"></canvas>
+        </div>
+        <div class="card chart-card span-4">
+          <div class="chart-title">Win / Loss Split</div>
+          <canvas id="winLossChart" height="200"></canvas>
+        </div>
+
+        <!-- Row 2: Daily P&L bars -->
+        <div class="card chart-card span-12">
+          <div class="chart-title">Daily Net P&L (per trading day)</div>
+          <canvas id="dailyPnlChart" height="160"></canvas>
+        </div>
+
+        <!-- Row 3: Mail vs Calc comparison -->
+        <div class="card chart-card span-8">
+          <div class="chart-title">My Calc P&L vs Broker Mail P&L (per day)</div>
+          <canvas id="mailVsCalcChart" height="200"></canvas>
+        </div>
+        <div class="card chart-card span-4">
+          <div class="chart-title">Holdings by Sector</div>
+          <canvas id="sectorChart" height="200"></canvas>
+        </div>
+
+        <!-- Row 4: Capital deployed + Holdings distribution -->
+        <div class="card chart-card span-6">
+          <div class="chart-title">Capital Deployed per Day (Entry × Qty)</div>
+          <canvas id="capitalChart" height="180"></canvas>
+        </div>
+        <div class="card chart-card span-6">
+          <div class="chart-title">Holdings Current Value Distribution</div>
+          <canvas id="holdingsDistChart" height="180"></canvas>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+<div id="modal-placeholder"></div>
+<script src="../shared/config.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/sheets.js"></script>
+<script src="../shared/components.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="Analytics.js"></script>
+</body>
+</html>
